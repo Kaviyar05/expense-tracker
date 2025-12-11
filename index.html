@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense & Budget Tracker</title>
+    <!-- Your CSS -->
+    <link rel="stylesheet" href="style.css">
+     <!-- Chart.js for trend visualization -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Dark Mode Toggle -->
+    <div class="dark-mode-toggle">
+        <label>
+            <input type="checkbox" id="toggle-dark-mode">
+            Dark Mode
+        </label>
+    </div>
+
+    <div class="container">
+
+        <!-- APP HEADER -->
+        <header>
+            <div class="top-header">
+            <h1>Expense & Budget Tracker</h1>
+            </div>
+        </header>
+
+        <!-- SUMMARY BOXES -->
+        <section class="summaries">
+            <div class="summary-card income-card">
+                <h3>Total Income</h3>
+                <p id="total-income">₹0</p>
+            </div>
+            <div class="summary-card expense-card">
+                <h3>Total Expense</h3>
+                <p id="total-expense">₹0</p>
+            </div>
+            <div class="summary-card balance-card">
+                <h3>Balance</h3>
+                <p id="balance-amount">₹0</p>
+            </div>
+        </section>
+
+        <!-- TRANSACTION FORM -->
+        <section class="transaction-section">
+            <form id="transaction-form">
+                <div class="form-group">
+                    <label for="trans-type">Type</label>
+                    <select id="trans-type">
+                        <option value="income">Income</option>
+                        <option value="expense">Expense</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="trans-desc">Description</label>
+                    <input type="text" id="trans-desc" placeholder="e.g. Salary, Grocery" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="trans-amount">Amount</label>
+                    <input type="number" id="trans-amount" placeholder="₹0" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="trans-date">Date</label>
+                    <input type="date" id="trans-date" required>
+                </div>
+
+                <button type="submit">Add Transaction</button>
+            </form>
+        </section>
+
+        <!-- HISTORY TABLE -->
+        <section class="history-section">
+            <h2>Transaction History</h2>
+            <table class="history-table">
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Type</th>
+                        <th>Amount</th>
+                        <th>Date</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="history-body">
+                    <!-- JavaScript will populate this -->
+                </tbody>
+            </table>
+        </section>
+
+        <!-- CHART -->
+        <section class="chart-section">
+            <h2>Monthly Trend</h2>
+            <canvas id="monthly-trend-chart"></canvas>
+        </section>
+
+        <!-- DOWNLOAD / EXPORT BUTTONS -->
+        <section class="export-section">
+            <button id="download-csv">Download CSV</button>
+            <button id="download-json">Download JSON</button>
+        </section>
+
+    </div>
+
+    <!-- Your JS -->
+    <script src="script.js"></script>
+
+</body>
+</html>
